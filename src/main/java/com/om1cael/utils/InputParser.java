@@ -9,7 +9,8 @@ public class InputParser {
         this.scanner = scanner;
     }
 
-    public int getNumber(int min, int max) throws NumberFormatException {
+    public int getNumber(String message, int min, int max) throws NumberFormatException {
+        System.out.print(message);
         int number = Integer.parseInt(scanner.nextLine());
 
         if(number < min) {
@@ -22,7 +23,8 @@ public class InputParser {
         return number;
     }
 
-    public String getText(int minSize, int maxSize) {
+    public String getText(String message, int minSize, int maxSize) {
+        System.out.print(message);
         String text = null;
 
         do {
