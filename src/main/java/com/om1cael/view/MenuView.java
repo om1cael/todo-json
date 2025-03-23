@@ -20,8 +20,22 @@ public class MenuView {
             populateOptions();
         }
 
-        for(int i = 1; i <= appOptions.size(); i++) {
-            System.out.println(i + ". " + appOptions.get(i - 1).getDescription());
+        for(int i = 0; i < appOptions.size(); i++) {
+            int frontEndChoice = i + 1;
+            System.out.println(frontEndChoice + ". " + appOptions.get(i).getDescription());
+        }
+
+        int choice = this.inputParser.getNumber(1, appOptions.size() + 1);
+        handleChoice(appOptions.get(choice - 1));
+    }
+
+    private void handleChoice(AppOptions option) {
+        switch (option) {
+            case ADD_TASK -> System.out.println("add task");
+            case LIST_TASKS -> System.out.println("list tasks");
+            case REMOVE_TASK -> System.out.println("remove task");
+            case EXIT -> System.exit(0);
+            default -> System.out.println("Invalid choice");
         }
     }
 
