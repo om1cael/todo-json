@@ -25,7 +25,7 @@ public class MenuView {
             System.out.println(frontEndChoice + ". " + appOptions.get(i).getDescription());
         }
 
-        int choice = this.inputParser.getNumber("Your choice: ", 1, appOptions.size() + 1);
+        int choice = this.inputParser.getNumber("Your choice: ", 1, appOptions.size());
         handleChoice(appOptions.get(choice - 1));
     }
 
