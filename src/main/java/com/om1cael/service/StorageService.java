@@ -35,6 +35,8 @@ public class StorageService {
 
     public boolean save(Task task) {
         loadCurrentContent();
+
+        task.setId(this.tasks.size());
         this.tasks.add(task);
 
         String jsonTasks = gson.toJson(this.tasks);
