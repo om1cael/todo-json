@@ -28,11 +28,17 @@ public class InputParser {
 
     public String getText(String message, int minSize, int maxSize) {
         System.out.print(message);
-        String text = null;
+        String text;
 
-        do {
+        while(true) {
             text = scanner.nextLine();
-        } while (text.length() < minSize || text.length() > maxSize);
+
+            if(text.length() < minSize || text.length() > maxSize) {
+                System.out.println("Your text should be within " + minSize + " and " + maxSize + " characters.");
+            } else {
+                break;
+            }
+        }
 
         return text;
     }
