@@ -10,7 +10,7 @@ public class TaskController {
         this.storageService = storageService;
     }
 
-    public void addTask(Task task) {
-        this.storageService.save(task);
+    public boolean addTask(Task task) {
+        return this.storageService.save(task);
     }
 }

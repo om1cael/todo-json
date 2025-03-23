@@ -21,6 +21,12 @@ public class TaskView {
         int priority = inputParser.getNumber("Priority (" + 0 + "-" + priorities +"): ", 0, priorities);
 
         Task task = new Task(0, description, TaskPriority.values()[priority]);
-        this.taskController.addTask(task);
+
+        if(this.taskController.addTask(task)) {
+            System.out.println("Task added successfully!");
+            return;
+        }
+        
+        System.out.println("Hmm, it was not possible to add the task!");
     }
 }
