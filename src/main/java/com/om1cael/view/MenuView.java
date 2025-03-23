@@ -9,10 +9,13 @@ import java.util.List;
 
 public class MenuView {
     private final InputParser inputParser;
+    private final TaskView taskView;
+
     private final List<AppOptions> appOptions = new ArrayList<>();
 
-    public MenuView(InputParser inputParser) {
+    public MenuView(InputParser inputParser, TaskView taskView) {
         this.inputParser = inputParser;
+        this.taskView = taskView;
     }
 
     public void showMenu() {
@@ -31,7 +34,7 @@ public class MenuView {
 
     private void handleChoice(AppOptions option) {
         switch (option) {
-            case ADD_TASK -> System.out.println("add task");
+            case ADD_TASK -> this.taskView.addTask();
             case LIST_TASKS -> System.out.println("list tasks");
             case REMOVE_TASK -> System.out.println("remove task");
             case EXIT -> System.exit(0);
