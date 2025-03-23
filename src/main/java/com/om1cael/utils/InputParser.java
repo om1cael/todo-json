@@ -10,16 +10,19 @@ public class InputParser {
     }
 
     public int getNumber(String message, int min, int max) throws NumberFormatException {
+        int number = 0;
         System.out.print(message);
-        int number = Integer.parseInt(scanner.nextLine());
 
-        if(number < min) {
-            number = min;
-        }
-        else if(number > max) {
-            number = max;
+        while(true) {
+            try {
+                number = Integer.parseInt(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("You did not input a number.");
+            }
         }
 
+        number = Math.clamp(number, min, max);
         return number;
     }
 
