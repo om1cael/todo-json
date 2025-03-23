@@ -10,6 +10,8 @@ import com.om1cael.view.TaskView;
 import java.util.Scanner;
 
 public class Main {
+    public static boolean isRunning = true;
+
     public static void main(String[] args) {
         try(Scanner scanner = new Scanner(System.in)) {
             InputParser inputParser = new InputParser(scanner);
@@ -18,7 +20,12 @@ public class Main {
             TaskController taskController = new TaskController(storageService);
             TaskView taskView = new TaskView(inputParser, taskController);
 
-            new MenuView(inputParser, taskView).showMenu();
+            storageService.createIfNotExists();
+            MenuView menuView = new MenuView(inputParser, taskView);
+
+            while(isRunning) {
+                menuView.showMenu();
+            }
         }
     }
 }

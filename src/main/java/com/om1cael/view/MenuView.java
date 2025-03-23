@@ -1,5 +1,6 @@
 package com.om1cael.view;
 
+import com.om1cael.Main;
 import com.om1cael.model.AppOptions;
 import com.om1cael.utils.InputParser;
 
@@ -37,7 +38,7 @@ public class MenuView {
             case ADD_TASK -> this.taskView.addTask();
             case LIST_TASKS -> System.out.println("list tasks");
             case REMOVE_TASK -> System.out.println("remove task");
-            case EXIT -> System.exit(0);
+            case EXIT -> Main.isRunning = false;
             default -> System.out.println("Invalid choice");
         }
     }
