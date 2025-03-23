@@ -1,13 +1,19 @@
 package com.om1cael.view;
 
 import com.om1cael.model.AppOptions;
+import com.om1cael.utils.InputParser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class MenuView {
+    private final InputParser inputParser;
     private final List<AppOptions> appOptions = new ArrayList<>();
+
+    public MenuView(InputParser inputParser) {
+        this.inputParser = inputParser;
+    }
 
     public void showMenu() {
         if(appOptions.isEmpty()) {
